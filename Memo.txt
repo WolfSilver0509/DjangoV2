@@ -1,0 +1,7 @@
+
+
+Création de user via le shell
+
+from authentification.models import User
+
+User.objects.create_user( username = 'Glaxer' , password = 'password' , role = 'CREATOR' )
