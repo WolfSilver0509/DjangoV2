@@ -31,6 +31,12 @@ p{
 
 }
 
+a {
+    color: #13FE13;
+    text-decoration: none;
+    margin 10px;
+}
+
 form {
     display: flex;
     flex-direction: column;

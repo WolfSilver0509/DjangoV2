@@ -1,7 +1,11 @@
-from django.contrib.auth import login, authenticate
-from django.shortcuts import render
+from django.contrib.auth import login, authenticate, logout
+from django.shortcuts import render , redirect
 from . import forms
 
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
 
 def login_page(request):
     form = forms.LoginForm()
@@ -14,9 +18,6 @@ def login_page(request):
                 password=form.cleaned_data['password'],
             )
             if user is not None:
-                login(request, user)
-                message = f'Bonjour, {user.username} ! Vous êtes connecté.'
-            else:
-                message = 'Identifiants invalides.'
-    return render(
-        request, 'authentification/login.html', context={'form': form, 'message': message})
+                return redirect('home')
+        message = 'Identifiants invalides.'
+    return render(request, 'authentification/login.html', context={'form': form, 'message': message})
