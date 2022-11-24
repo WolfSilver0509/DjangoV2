@@ -1,0 +1,16 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet"  href="{% static 'styleLogin.css' %}" >
+    </head>
+    <body>
+        <h1> LOCKED </h1>
+        {% block content %}{% endblock content %}
+
+        {% if user.is_authenticated %}
+            <p>Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'logout' %}"> Se déconnecter</a></p>
+        {% endif %}
+    </body>
+</html>
