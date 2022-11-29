@@ -8,12 +8,19 @@
 
         {{ form.as_p }}
         {% csrf_token %}
-        <button type="submit" >Se connecter
+        <button class="conex" type="submit" >Se connecter
             <span></span>
             <span></span>
             <span></span>
             <span></span>
         </button>
     </form>
+     <p class="paraI">Pas encore membre ? </p>
+    <button class="buttonI" onclick="window.location.href = '{% url 'signup' %}';">Inscrivez-vous
+           <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+    </button>
     </div>
 {% endblock content %}
